@@ -14,6 +14,9 @@ class StarWarsService:
         self.planets_endpoint = "planets"
 
     def get_people(self):
+        """
+        Get people from swapi
+        """
         # reduce the nb of requests by getting chunks of 10 people
         people_per_page = 10
 
@@ -22,7 +25,7 @@ class StarWarsService:
             url = f"{self.url}{self.people_endpoint}"
             response = requests.get(url)
             if str(response.status_code).startswith("2"):
-                count = 20  # response.json().get("count")
+                count = response.json().get("count")
                 count = math.ceil(count / people_per_page)
                 for idx in range(1, count + 1):
                     url = f"{self.url}{self.people_endpoint}/?page={idx}"
@@ -37,6 +40,9 @@ class StarWarsService:
         return all_people
 
     def get_planet(self, idx):
+        """
+        Get planet from swapi
+        """
         planet = None
         try:
             url = f"{self.url}{self.planets_endpoint}/{idx}"
