@@ -1,0 +1,49 @@
+{% extends 'main.html' %}
+
+{% block content %}
+{% if people %}
+<table>
+    <tr>
+        {% if count_exists %}
+        <th>{{col1}}</th>
+        <th>{{col2}}</th>
+        <th>count</th>
+        {% else %}
+        <th>name</th>
+        <th>height</th>
+        <th>mass</th>
+        <th>hair_color</th>
+        <th>skin_color</th>
+        <th>eye_color</th>
+        <th>birth_year</th>
+        <th>gender</th>
+        <th>homeworld</th>
+        <th>date</th>
+        {% endif %}
+    </tr>
+    {% for p in people %}
+    <tr>
+        {% if count_exists %}
+        <td> {{p.col1}} </td>
+        <td> {{p.col2}} </td>
+        <td> {{p.count}} </td>
+        {% else %}
+        <td> {{p.name}} </td>
+        <td> {{p.height}} </td>
+        <td> {{p.mass}} </td>
+        <td> {{p.hair_color}} </td>
+        <td> {{p.skin_color}} </td>
+        <td> {{p.eye_color}} </td>
+        <td> {{p.birth_year}} </td>
+        <td> {{p.gender}} </td>
+        <td> {{p.homeworld}} </td>
+        <td> {{p.date}} </td>
+        {% endif %}
+
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>Data is not available yet!</p>
+{% endif %}
+{% endblock %}
