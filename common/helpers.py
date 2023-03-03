@@ -1,9 +1,10 @@
 import csv
 from datetime import datetime
 from django.conf import settings
+from django.utils.dateparse import parse_datetime
+
 from common.services.star_wars import StarWarsService
 from people.models import PeopleDataset
-from django.utils.dateparse import parse_datetime
 
 
 def get_people_data():

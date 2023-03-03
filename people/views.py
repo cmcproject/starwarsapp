@@ -1,11 +1,12 @@
 import logging
-from django.shortcuts import render
-from common.helpers import save_data
-from threading import Thread
-from django.shortcuts import get_object_or_404
 import petl as etl
-from people.models import PeopleDataset
+from threading import Thread
+from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from django.conf import settings
+
+from common.helpers import save_data
+from people.models import PeopleDataset
 
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
